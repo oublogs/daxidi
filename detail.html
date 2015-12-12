@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0">
+      <title>食谱详情</title>
+      <link href="css/cssreset.css" rel="stylesheet" type="text/css"/>
+      <link href="css/swiper.min.css" rel="stylesheet" />
+      <link href="css/site.css?v=0.02" rel="stylesheet"  type="text/css"/>
+  </head>
+  <body>
+  <header>
+      <ul>
+          <li class="back"></li>
+          <li class="title">食谱详情</li>
+      </ul>
+  </header>
+  <div class="content" id="j-content">
+
+  </div>
+  <footer>
+      <ul class="clearfix">
+          <li class="logo">
+              <img src="img/logo_96.png"/>
+          </li>
+          <li class="text">全球生鲜乐活</li>
+          <li class="action">
+              <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.example.courierapp" class="download">下载大希地</a>
+              <a href="javascript:;" class="x" id="j-close"><img src="img/bar-x.png"/></a>
+          </li>
+      </ul>
+  </footer>
+      <!--audiostart-->
+      <audio id="j-play-audio" src="" autoplay="autoplay"></audio>
+      <!--audio End-->
+  <script type="text/template" id="j-content-template">
+      <div class="master-imgs">
+          <div class="bg-border">
+              <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                      <%for(var i=0;i<steps.length;i++){%>
+                              <ul class="swiper-slide">
+                                  <li class="image">
+                                      <img src="<%=steps[i].imageUrl;%>" alt="">
+                                      <div class="audio">
+                                        <i data-audio="<%=steps[i].audio;%>" id="j-audio-b-<%=i%>"></i>
+                                      </div>
+                                  </li>
+                                  <li class="step">STEP 0<%=steps[i].step;%></li>
+                                  <li class="title"><%=steps[i].words;%></li>
+                              </ul>
+                          <%}%>
+
+                  </div>
+              </div>
+              <div class="swiper-pagination"></div>
+          </div>
+      </div>
+          <div class="master-title">
+              <div class="inner">
+                  <h1><%=name;%></h1>
+              </div>
+          </div>
+      <section class="introduction">
+          <h3>食谱说明</h3>
+          <p><%=recpeExplan;%></p>
+      </section>
+          <section class="introduction">
+              <h3>卖点</h3>
+              <p><%=introduction;%></p>
+          </section>
+          <section class="introduction difficult">
+              <h3>难度</h3>
+              <ul>
+                  <li>
+                      <%if(difficultyLevel<4){%>
+                      <img src="img/difficulty_icon_hover@3x.png" />
+                      <%}else{%>
+                      <img src="img/difficulty_icon@3x.png" />
+                      <%}%>
+                  </li>
+                  <li>
+                      <%if(difficultyLevel<3){%>
+                      <img src="img/difficulty_icon_hover@3x.png" />
+                      <%}else{%>
+                      <img src="img/difficulty_icon@3x.png" />
+                      <%}%>
+                  </li>
+                  <li>
+                      <%if(difficultyLevel<2){%>
+                      <img src="img/difficulty_icon_hover@3x.png" />
+                      <%}else{%>
+                      <img src="img/difficulty_icon@3x.png" />
+                      <%}%>
+                  </li>
+                  <li>
+                      <%if(difficultyLevel==1){%>
+                      难
+                      <%}else if(difficultyLevel==2){%>
+                      中
+                      <%}else{%>
+                      易
+                      <%}%>
+                  </li>
+              </ul>
+          </section>
+          <section class="introduction time">
+              <h3>时间</h3>
+              <p class="minutes"><%=timeIntroduction;%>分钟</p>
+          </section>
+      <section class="introduction nutrition">
+          <h3>营养</h3>
+          <p><%=nutritionIntroduction;%></p>
+      </section>
+      <section class="introduction need">
+          <h3>食材</h3>
+          <ol>
+              <%for(var i=0;i<sIntroduction.length;i++){%>
+                  <li><i></i><%=sIntroduction[i]%></li>
+                  <%}%>
+</ol>
+      </section>
+      <section class="introduction dosage">
+          <h3>用具</h3>
+          <p><%=dosageIntroduction;%></p>
+      </section>
+      <section class="introduction advice">
+          <h3>建议</h3>
+          <p><%=advice;%></p>
+      </section>
+      </script>
+  <script src="js/jquery-2.1.4.min.js" charset="utf-8"></script>
+  <script src="js/swiper.jquery.min.js" charset="utf-8"></script>
+  <script src="js/md5.js" charset="utf-8"></script>
+  <script src="js/baiduTemplate.js" charset="utf-8"></script>
+  <script src="js/jquery.cookie.js" charset="utf-8"></script>
+  <script>
+      function getQueryString(name) {
+          var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+          var r = window.location.search.substr(1).match(reg);
+          if (r != null) return decodeURIComponent(r[2]); return null;
+      }
+
+      var id = getQueryString("recipeId");
+      if (id == null) {
+          id = getQueryString("id");
+          if (id == null) {
+              id = 2;
+          }
+      }
+
+      var preName = "daxidi-lepu.im";
+
+      function getHash(id) {
+          return  faultylabs.MD5(id + preName).toLowerCase();
+      }
+
+      var audio;
+
+      var initAudio = function () {
+          audio = document.getElementById('j-play-audio');
+
+          audio.addEventListener("ended", function() {
+            var playId = $("#j-play-audio").attr("data-current");
+            $("#"+playId).removeClass("pause");
+          }, false);
+
+      }
+
+      function playOrPaused() {
+          if (audio.paused) {
+              audio.play();
+              return;
+          }
+
+          audio.pause();
+      }
+
+
+      var bat = baidu.template;
+
+      $.post("../api/getRecipeInfo", { recipeId: id, hash: getHash(id) }, function (data) {
+
+          //数据加载
+          var html = bat('j-content-template', data);
+          document.getElementById('j-content').innerHTML = html;
+
+          //效果加载
+          var swiper = new Swiper('.swiper-container', {
+              pagination: '.swiper-pagination',
+              paginationClickable: true
+          });
+
+          initAudio();
+
+          $(".swiper-slide i").click(function () {
+            var hasChange = $(this).hasClass("pause");
+            $(this).closest(".swiper-wrapper").find("i").removeClass("pause");
+
+              if ($("#j-play-audio").attr("src") != $(this).attr("data-audio")) {
+                  audio.src = $(this).attr("data-audio");
+                  audio.play();
+                  $(this).toggleClass("pause", !hasChange);
+
+                  $("#j-play-audio").attr("data-current",$(this).attr("id"));
+              } else {
+                  if (audio.paused) {
+                      $(this).addClass("pause");
+                      audio.play();
+                      return;
+                  }
+
+                  $(this).removeClass("pause");
+                  audio.pause();
+              }
+          });
+      });
+
+      // if ($.cookie('setBar') == "1") {
+      //     $("footer").hide();
+      // }
+
+      $("#j-close").click(function() {
+          // $.cookie('setBar', '1');
+          $("footer").hide();
+      });
+  </script>
+  </body>
+</html>

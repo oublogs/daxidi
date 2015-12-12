@@ -1,0 +1,50 @@
+body{font-family:微软雅黑}
+.content{padding-bottom:5rem}
+header ul{position:relative;border-bottom:2px solid #f3f3f3;padding:1rem 0 .7rem 0}
+header ul li:first-child{position:absolute}
+header ul li.title{color:#555;font-weight:700;font-size:1.8rem;text-align:center}
+header .back{margin-top:.1rem}  
+header .back i{background:url(../img/back_icon@3x.png) no-repeat 0 0;background-size:contain;display:inline-block;width:2rem;height:2rem;margin-left:1rem}
+.master-imgs{margin:2.5rem;margin-bottom:6rem}
+.master-imgs .bg-border{background-color:#FBFBFB;border:1px solid #EFEFEF;box-shadow:0 0 15px 5px #ccc;border-radius:8px;-moz-border-radius: 8px;
+-webkit-border-radius: 8px; position:relative}
+.swiper-wrapper,.swiper-wrapper .swiper-slide{ background-color: #FFF;border-radius:8px;-moz-border-radius: 8px;
+-webkit-border-radius: 8px;}
+.bg-border .swiper-pagination{bottom:-4rem;left:0;width:100%}
+.swiper-pagination-bullet{width:1.2rem;height:1.2rem;margin:0 .7rem;background:0 0;border:1px solid #555;opacity:1}
+.swiper-pagination-bullet-active{background:#555}
+.master-imgs img{ width: 100%;border-radius: 8px 8px 0 0;}
+.master-imgs .image{margin-bottom:1.5rem;position:relative}
+.master-imgs .image .audio{position:absolute; width:100%; left:0; top:33%; text-align: center;}
+.master-imgs .image i{display:inline-block;width:7rem;height:7rem;background:url(../img/play_icon@3x.png) no-repeat 0 0;background-size:contain;}
+.master-imgs .image i.pause{background:url(../img/stop_icon.png) no-repeat 0 0;background-size:contain}
+.master-imgs .step,.master-imgs .title{text-align:center}
+.master-imgs .step{font-size:2.8rem;font-weight:700;margin-bottom:2rem}
+.master-imgs .title{font-size:1.6rem;padding-bottom:3rem}
+.master-title{text-align:center;margin-bottom:2rem}
+.master-title .inner,.master-title h1{display:inline-block;font-weight:400;border-color:#555}
+.master-title h1{border-top:1px solid;border-bottom:2px solid;padding:1rem 8px;font-size:2rem;color:#555;margin:.1rem 0 .3rem 0; font-weight: bold;}
+.master-title .inner{border-top:2px solid;border-bottom: 1px solid;}
+.introduction{padding:0 2.2rem;margin-bottom:3.8rem}
+.introduction h3{text-align:center;color:#555;font-size:2rem;border-bottom:1px solid #d9d9d9;font-weight:400;padding-bottom:1rem; font-weight: bold;}
+.introduction p{font-size:1.4rem;text-align:center}
+.introduction.time .minutes{text-align:center;}
+.introduction.need ol{list-style-type:none;padding:0;display: table;margin: 1.2em auto;}
+.introduction.need li{font-size:1.4rem;margin-bottom:.8rem}
+.introduction.need li i{background:url(../img/list_icon@3x.png) no-repeat 0 3px;background-size:9px;display:inline-block;width:13px;height:13px;}
+.introduction.difficult ul{text-align:center;padding-top:1.2rem}
+.introduction.difficult li{display:inline-block;margin:0 1.1rem;vertical-align:middle}
+.introduction.difficult img{width:2.5rem}
+.introduction.difficult li:last-child{font-size:1.4rem}
+footer{position:fixed;bottom:0;width:100%;background:url(../img/bar-bg.png) repeat 0 0;z-index:1}
+footer ul{padding:.5rem}
+footer img{vertical-align:middle}
+footer ul li{float:left}
+footer ul li.action{text-align:right;padding-right:2.5rem;width:110px;float:right;position:relative;margin-top: .6rem;}
+footer ul li.text{color:#FFF;padding-top:1.2rem;font-size:1.4rem;padding-left:.8rem}
+footer .logo img{width:4rem;}
+footer .download{text-decoration:none;text-align:center;width:8.5rem; height:2rem;line-height:2rem;background-color:#ffc000;display:inline-block;color:#FFF;border-radius:.3rem;font-size:1.6rem;padding:5px;overflow:hidden}
+footer .download img{width:25%}
+footer .download.ios{margin-top:3px}
+footer ul li.action .x{position:absolute;top:0;right:2px}
+footer ul li.action .x img{width:15px}
