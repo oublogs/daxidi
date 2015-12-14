@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0">
-    <title>代金券</title>
+    <meta name="format-detection" content="telephone=no">
+    <title>大希地</title>
     <link href="css/cssreset.css" rel="stylesheet" type="text/css"/>
     <link href="css/activty.css" rel="stylesheet" />
 </head>
@@ -84,15 +85,17 @@
                     return;
                 }
 
+                $("#j-input-mobile").text(mobile);
+
                 $.post("http://api.dahiti.com:9111/api/getRecommendHb", { recommendCode: coupon, mobilephone: mobile }, function(r) {
                     var returnData = r.returnValue;
                     switch(returnData) {
                         case 1:
-                            $(".step-1").addCalss("hidden");
-                            $(".step-2").removeCalss("hidden");
+                            $(".step-1").addClass("hidden");
+                            $(".step-2").removeClass("hidden");
                             break;
                         case 2:
-                            alert("：参数错误"); break;
+                            alert("参数错误"); break;
                         case 3:
                             alert("服务器异常"); break;
                         case 4:
