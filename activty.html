@@ -64,7 +64,7 @@
 
             var bat = baidu.template;
 
-            $.get("http://api.dahiti.com:9111/api/getRecommendHbConfig", function(data) {
+            $.get("http://api.dahiti.com/api/getRecommendHbConfig", function(data) {
                 //数据加载
                 var html = bat('j-content-template', data);
                 document.getElementById('j-red-envelope').innerHTML = html;
@@ -88,7 +88,7 @@
 
                 $("#j-input-mobile").text(mobile);
 
-                $.post("http://api.dahiti.com:9111/api/getRecommendHb", { recommendCode: coupon, mobilephone: mobile }, function(r) {
+                $.post("http://api.dahiti.com/api/getRecommendHb", { recommendCode: coupon, mobilephone: mobile }, function(r) {
                     var returnData = r.returnValue;
                     switch(returnData) {
                         case 1:
