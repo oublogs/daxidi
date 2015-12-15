@@ -26,10 +26,10 @@
             <li class="coupon">
                 <img src="img/activty/yhq.png"/>
                 <div class="price">
-                    <strong>30<span>元</span></strong>
+                    <strong>30</strong><span>元</span>
                 </div>
             </li>
-            <li class="text">代金券已经放入账户<span id="j-input-mobile">18069135169</span></li>
+            <li class="text">代金券已经放入账户<span id="j-input-mobile"></span></li>
             <li class="text">关注订阅号或下载APP乐享优惠</li>
             <li class="download">
                 <a class="bt" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.daxidi.dxd&g_f=991653">点击下载大希地APP</a>
@@ -69,7 +69,7 @@
                 var html = bat('j-content-template', data);
                 document.getElementById('j-red-envelope').innerHTML = html;
 
-                $(".step-2 .price strong").text($("#j-red-envelope .price").text());
+                $(".step-2 .price strong").text($("#j-red-envelope .price").text().replace('￥',''));
             });
 
             $("#j-get-now-bt").click(function () {
