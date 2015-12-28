@@ -50,9 +50,10 @@
                 if (r != null) return decodeURIComponent(r[2]); return null;
             }
 
-            $.get("http://api.dahiti.com/api/getRecommendHbConfig", function(data) {
-
+            $.get("http://api.dahiti.com:9111/api/getRecommendHbConfig", function(data) {
                 $("body").css("background-color", data.tcRgb);
+                $("#page").css("background-image", "url(" + data.url + ")");
+                $("#j-get-now-bt").css("color", data.btnRgb);
                 $(".step-2 .price strong").text(data.total);
             });
 
