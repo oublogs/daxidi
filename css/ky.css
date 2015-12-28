@@ -1,0 +1,60 @@
+﻿
+.hidden{ display: none !important;}
+#page{max-width: 320px;margin: 0 auto;}
+.red-envelope{ height: 172px;visibility: hidden}
+.red-envelope .main{ width: 55%;margin: 0 auto; margin-top: 15px;}
+.red-envelope .main img{ width: 100%;}
+.red-envelope .main .price{ text-align: center;color: #FFF;margin-top: -130px;font-size: 56px;font-weight: bold;line-height: 0.4;}
+.red-envelope .main .price span{ font-size: 20px;}
+.red-envelope .main .title-sub,.red-envelope .main .master-title{text-align: center; font-size: 14px; font-weight: bold;}
+.red-envelope .main .master-title{color: #FFF; margin-top: 35px;}
+.red-envelope .main .title-sub{ color: #FEF437;margin-top: 5px;}
+    .red-envelope .pt {
+        background: url('../img/activty/small_pager.png') center 0 no-repeat;
+        position: absolute;
+        background-size: 100% auto;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        color: #FFF;
+        line-height: .6;
+        font-size: 16px;
+        font-weight: bold;
+        padding-top: 15px;
+    }
+    .red-envelope .pt strong{ margin-top: 10px;}
+    .red-envelope .pt span{ font-size: 12px;font-weight: normal;}
+.red-envelope .pt-1{ top: 30px;left: 30px;transform:rotate(-35deg);}
+.red-envelope .pt-2{top: 100px;left: 15px;transform:rotate(-35deg);}
+.red-envelope .pt-3{ top: 40px;right: 20px;transform:rotate(35deg);}
+.red-envelope .pt-4{top: 120px;right: 20px;transform:rotate(30deg);}
+
+#j-interactive{margin-top: 30px;}
+.step-1 {width: 80%;margin: 0 auto;}
+.step-1 input[type='text']{width: 100%;text-align: center;font-size: 24px;padding: 12px 0;border-radius: 8px;border: 1px solid #ccc;}
+.step-1 .input{ margin-bottom: 13px;}
+.step-1 .get-now{ margin-top: 30px;}
+#j-interactive .bt{width: 100%;text-align: center;border-radius: 40px;background-color: #FEC200;font-size: 22px;border: 0;color: #FFF;padding: 18px 0;display: inline-block;}
+#j-interactive .text{ font-size: 16px;font-weight: bold;color: #433F37;}
+
+.step-2 li{text-align: center;margin-bottom: 7px;}
+.step-2 .coupon .price{ font-size: 42px;
+    margin-top: -70px;
+    text-indent: 70px;
+    color: #F03332;
+}
+.step-2 .coupon{    margin-bottom: 27px;}
+.step-2 .coupon img{width:65%;}
+.step-2 .coupon .price span{ font-size: 30px;}
+
+.step-2 .download{
+    margin: 0 auto;
+    margin-top: 12px;
+    width: 80%;
+    text-align: center;
+
+}
+.step-2 .download a{ text-decoration: none;}
+
+.qrcode{ text-align: center;margin-top: 20px;padding-bottom: 20px;visibility: hidden}
+.qrcode img{ width: 50%;}

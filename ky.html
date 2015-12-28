@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>大希地</title>
+    <link href="css/cssreset.css" rel="stylesheet" type="text/css" />
+    <link href="css/ky.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="page">
+        <div class="red-envelope" id="j-red-envelope">
+
+        </div>
+        <div id="j-interactive">
+            <ul class="step-1">
+                <li class="input"><input type="text" id="j-coupon" placeholder="输入优惠码" /></li>
+                <li class="input"><input type="text" id="j-mobile" placeholder="输入手机号" /></li>
+                <li class="text hidden" id="j-error-message"></li>
+                <li class="get-now">
+                    <input type="button" id="j-get-now-bt" value="立即领取" class="bt" />
+                </li>
+            </ul>
+            <ul class="step-2 hidden">
+                <li class="coupon">
+                    <img src="img/activty/yhq.png" />
+                    <div class="price">
+                        <strong>30</strong><span>元</span>
+                    </div>
+                </li>
+                <li class="text">代金券已经放入账户<span id="j-input-mobile"></span></li>
+                <li class="text">关注订阅号或下载APP乐享优惠</li>
+                <li class="download">
+                    <a class="bt" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.daxidi.dxd&g_f=991653">点击下载大希地APP</a>
+                </li>
+            </ul>
+        </div>
+        <div class="qrcode">
+            <img src="img/activty/ewm.png" />
+        </div>
+    </section>
+    <script src="js/jquery-2.1.4.min.js" charset="utf-8"></script>
+    <script src="js/swiper.jquery.min.js" charset="utf-8"></script>
+    <script src="js/baiduTemplate.js" charset="utf-8"></script>
+    <script type="text/javascript">
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return decodeURIComponent(r[2]); return null;
+            }
+
+            $.get("http://api.dahiti.com/api/getRecommendHbConfig", function(data) {
+
+                $("body").css("background-color", data.tcRgb);
+                $(".step-2 .price strong").text(data.total);
+            });
+
+            $("#j-get-now-bt").click(function () {
+                var coupon = $("#j-coupon").val();
+                var mobile = $("#j-mobile").val();
+
+                if (coupon.length <= 0) {
+                    alert("请输入推荐码");
+                    return;
+                }
+
+                if (mobile.length <= 0) {
+                    alert("请输入手机号");
+                    return;
+                }
+
+                $("#j-input-mobile").text(mobile);
+
+                $.post("http://api.dahiti.com/api/getRecommendHb", { recommendCode: coupon, mobilephone: mobile }, function(r) {
+                    var returnData = r.returnValue;
+                    switch(returnData) {
+                        case 1:
+                            $(".step-1").addClass("hidden");
+                            $(".step-2").removeClass("hidden");
+                            break;
+                        case 2:
+                            $("#j-error-message").removeClass("hidden").text("参数错误");
+                            break;
+                        case 3:
+                            $("#j-error-message").removeClass("hidden").text("服务器异常"); break;
+                        case 4:
+                             $("#j-error-message").removeClass("hidden").text("推荐码无效"); break;
+                        case 5:
+                            $("#j-error-message").removeClass("hidden").text("手机号码格式错误"); break;
+                        case 6:
+                            $("#j-error-message").removeClass("hidden").text("hash错误"); break;
+                        case 7:
+                            $("#j-error-message").removeClass("hidden").text("已注册的用户不能领取大希地APP代金券"); break;
+                        case 8:
+                            $("#j-error-message").removeClass("hidden").text("代金券你已领取过");
+                            break;
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
