@@ -30,12 +30,10 @@ body{height: 100%;}
 .red-envelope .pt-3{ top: 40px;right: 20px;transform:rotate(35deg);}
 .red-envelope .pt-4{top: 120px;right: 20px;transform:rotate(30deg);}
 
-#j-interactive{margin-top: 30px;}
-.step-1 {width: 80%;margin: 0 auto;}
+.step-1 {width: 80%;margin: 0 auto; padding-top: 5px;}
 .step-1 input[type='text']{width: 100%;text-align: center;font-size: 24px;padding: 12px 0;border-radius: 8px;border: 1px solid #ccc;}
 .step-1 .input{ margin-bottom: 13px;}
-.step-1 .get-now{ margin-top: 30px;}
-#j-interactive .bt{width: 100%;text-align: center;border-radius: 40px;background-color: #FEC200;font-size: 22px;border: 0;color: #FFF;padding: 18px 0;display: inline-block;}
+#j-interactive .bt{width: 100%;text-align: center;border-radius: 40px;background-color: #FEC200;font-size: 22px;border: 0;color: #FFF;padding: 15px 0;display: inline-block;}
 #j-interactive .text{ font-size: 16px;font-weight: bold;color: #433F37;}
 
 .step-2 li{text-align: center;margin-bottom: 7px;}
@@ -50,7 +48,6 @@ body{height: 100%;}
 
 .step-2 .download{
     margin: 0 auto;
-    margin-top: 12px;
     width: 80%;
     text-align: center;
 

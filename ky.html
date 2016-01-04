@@ -9,37 +9,37 @@
     <link href="css/ky.css" rel="stylesheet" />
 </head>
 <body>
-    <section id="page">
-        <div class="red-envelope" id="j-red-envelope">
+<section id="page">
+    <div class="red-envelope" id="j-red-envelope">
 
-        </div>
-        <div id="j-interactive">
-            <ul class="step-1">
-                <li class="input"><input type="text" id="j-coupon" placeholder="输入优惠码" /></li>
-                <li class="input"><input type="text" id="j-mobile" placeholder="输入手机号" /></li>
-                <li class="text hidden" id="j-error-message"></li>
-                <li class="get-now">
-                    <input type="button" id="j-get-now-bt" value="立即领取" class="bt" />
-                </li>
-            </ul>
-            <ul class="step-2 hidden">
-                <li class="coupon">
-                    <img src="img/activty/yhq.png" />
-                    <div class="price">
-                        <strong>30</strong><span>元</span>
-                    </div>
-                </li>
-                <li class="text">代金券已经放入账户<span id="j-input-mobile"></span></li>
-                <li class="text">关注订阅号或下载APP乐享优惠</li>
-                <li class="download">
-                    <a class="bt" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.daxidi.dxd&g_f=991653">点击下载大希地APP</a>
-                </li>
-            </ul>
-        </div>
-        <div class="qrcode">
-            <img src="img/activty/ewm.png" />
-        </div>
-    </section>
+    </div>
+    <div id="j-interactive">
+        <ul class="step-1">
+            <li class="input"><input type="text" id="j-coupon" placeholder="输入优惠码"/></li>
+            <li class="input"><input type="text" id="j-mobile" placeholder="输入手机号"/></li>
+            <li class="text hidden" id="j-error-message"></li>
+            <li class="get-now">
+                <input type="button" id="j-get-now-bt" value="立即领取" class="bt"/>
+            </li>
+        </ul>
+        <ul class="step-2 hidden">
+            <li class="coupon">
+                <img src="img/activty/yhq.png"/>
+                <div class="price">
+                    <strong>30</strong><span>元</span>
+                </div>
+            </li>
+            <li class="text">代金券已经放入账户<span id="j-input-mobile"></span></li>
+            <li class="text">关注订阅号或下载APP乐享优惠</li>
+            <li class="download">
+                <a class="bt" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.daxidi.dxd&g_f=991653">点击下载大希地APP</a>
+            </li>
+        </ul>
+    </div>
+    <div class="qrcode">
+        <img src="img/activty/ewm.png"/>
+    </div>
+</section>
     <script src="js/jquery-2.1.4.min.js" charset="utf-8"></script>
     <script src="js/swiper.jquery.min.js" charset="utf-8"></script>
     <script src="js/baiduTemplate.js" charset="utf-8"></script>
@@ -52,7 +52,7 @@
 
             $.get("http://api.dahiti.com:9111/api/getRecommendHbConfig", function(data) {
                 $("body").css("background-color", data.tcRgb);
-                $("#page").css("background-image", "url(" + data.url + ")").css("background-repeat", "no-repeat");
+                $("#page").css("background-image", "url(" + data.url + ")").css("background-repeat", "no-repeat").css("height", data.bjHeight);
                 $("#j-get-now-bt").css("background-color", data.btnRgb);
                 $(".step-2 .price strong").text(data.total);
             });
