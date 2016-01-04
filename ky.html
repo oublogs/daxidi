@@ -52,7 +52,7 @@
 
             $.get("http://api.dahiti.com/api/getRecommendHbConfig", function(data) {
                 $("body").css("background-color", data.tcRgb);
-                $("#page").css("background-image", "url(" + data.url + ")").css("background-repeat", "no-repeat").css("height", data.bjHeight);
+                $("#page").css("background-image", "url(" + data.url + ")").css("background-repeat", "no-repeat").css("height", parseInt(data.bjHeight)/3);
                 $("#j-get-now-bt").css("background-color", data.btnRgb);
                 $(".step-2 .price strong").text(data.total);
             });
