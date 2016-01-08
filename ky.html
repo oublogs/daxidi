@@ -23,16 +23,23 @@
             </li>
         </ul>
         <ul class="step-2 hidden">
-            <li class="coupon">
-                <img src="img/activty/yhq.png"/>
-                <div class="price">
-                    <strong>30</strong><span>元</span>
+            <li class="coupon clearfix">
+                <div class="left">
+                    <img src="img/activty/left-b.png" />
+                    <div class="price">
+                        <strong>10</strong>
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="img/activty/left-a.png" />
+                    <div class="price">
+                        <strong>30</strong>
+                    </div>
                 </div>
             </li>
-            <li class="text">代金券已经放入账户<span id="j-input-mobile"></span></li>
-            <li class="text">关注订阅号或下载APP乐享优惠</li>
+            <li class="text"><strong>代金券已经放入账户<span id="j-input-mobile"></span></strong><br/>关注订阅号或下载APP乐享优惠</li>
             <li class="download">
-                <a class="bt" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.daxidi.dxd&g_f=991653">点击下载大希地APP</a>
+                <a class="bt" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.daxidi.dxd&g_f=991653">点击下载APP</a>
             </li>
         </ul>
     </div>
@@ -54,7 +61,7 @@
                 $("body").css("background-color", data.tcRgb);
                 $("#page").css("background-image", "url(" + data.url + ")").css("background-repeat", "no-repeat").css("height", parseInt(data.bjHeight)/3);
                 $("#j-get-now-bt").css("background-color", data.btnRgb);
-                $(".step-2 .price strong").text(data.total);
+                $(".step-2 .right .price  strong").text(data.total);
             });
 
             $("#j-get-now-bt").click(function () {

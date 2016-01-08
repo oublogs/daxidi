@@ -34,17 +34,12 @@ body{height: 100%;}
 .step-1 input[type='text']{width: 100%;text-align: center;font-size: 16px;padding: 12px 0;border-radius: 8px;border: 1px solid #ccc;}
 .step-1 .input{ margin-bottom: 13px;}
 .step-1 .get-now{ margin-top: 30px;}
-#j-interactive .bt{width: 100%;text-align: center;border-radius: 40px;background-color: #FEC200;font-size: 22px;border: 0;color: #000;padding: 15px 0;display: inline-block;}
-#j-interactive .text{ font-size: 16px;font-weight: bold;color: #433F37;}
+#j-interactive .bt{width: 100%;text-align: center;border-radius: 8px;background-color: #FEC200;font-size: 22px;border: 0;color: #000;padding: 12px 0;display: inline-block;}
+#j-interactive .text{ font-size: 16px;color: #433F37;}
+.step-1 .text{font-weight: bold;}
 
 .step-2 li{text-align: center;margin-bottom: 7px;}
-.step-2 .coupon .price{ font-size: 42px;
-    margin-top: -70px;
-    text-indent: 70px;
-    color: #F03332;
-}
-.step-2 .coupon{    margin-bottom: 27px;}
-.step-2 .coupon img{width:65%;}
+
 .step-2 .coupon .price span{ font-size: 30px;}
 
 .step-2 .download{
@@ -57,3 +52,26 @@ body{height: 100%;}
 
 .qrcode{ text-align: center;margin-top: 20px;padding-bottom: 20px;visibility: hidden}
 .qrcode img{ width: 50%;}
+
+.coupon .left,.coupon .right{width: 50%;position: relative;box-sizing: border-box;}
+.coupon .left{     float: left;
+    text-align: right;
+    padding-right: 10px;}
+.coupon .left img,.coupon .right img,.step-2 .coupon{   height: 90px;}
+.coupon .right{     float: right;
+    text-align: left;
+    padding-left: 30px;}
+.coupon .left .price{ font-size: 36px;
+    color: #a82224;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+}
+.coupon .right .price{     font-size: 27px;
+    color: #fff100;
+    position: absolute;
+    left: 51px;
+    top: 29px;
+}
+
+.step-2 .text{ border: 3px solid #cacaca;border-bottom: 0;padding-top: 7px; }
